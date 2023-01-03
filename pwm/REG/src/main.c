@@ -1,4 +1,4 @@
-#include "stm32f4xx.h"                  // Device header
+#include "stm32f4xx.h"                  /* Device header */
 
 #define sbi(reg, bit) (reg) |= (1 << (bit))
 #define cbi(reg, bit) (reg) &= ~(1 << (bit))
@@ -29,20 +29,20 @@ void _GPIO_Init(void)
 {
 		/* GPIOD for built-in led */
 		/* GPIOD clock */
-		RCC->AHB1ENR 	|= 	(1u << 3);
+		RCC->AHB1ENR 		|= 	(1u << 3);
 		/* GPIOD config */
-		GPIOD->MODER 	&= 	~(3u << (2 * 12));
-		GPIOD->MODER 	|= 	(2u << (2 * 12));
-		GPIOD->OTYPER &= 	~(1u << 12);
-		GPIOD->AFR[1] &= 	~(15u << (4 * 4));
-		GPIOD->AFR[1] |= 	(2u << (4 * 4));
+		GPIOD->MODER 		&= 	~(3u << (2 * 12));
+		GPIOD->MODER 		|= 	(2u << (2 * 12));
+		GPIOD->OTYPER 		&= 	~(1u << 12);
+		GPIOD->AFR[1]		&= 	~(15u << (4 * 4));
+		GPIOD->AFR[1] 		|= 	(2u << (4 * 4));
 }
 
 void Timer_Init(void) 
 {
 		/* Timer 6 for delay and Timer 4 for PWM */
 		/* Timer 6 clock */
-		RCC->APB1ENR 	|= 	(1 << 4);
+		RCC->APB1ENR 		|= 	(1 << 4);
 		/* Timer 6 config */
 		TIM6->CR1 		|= 	(1 << 1);
 		TIM6->PSC 		=		(84 - 1);
@@ -50,7 +50,7 @@ void Timer_Init(void)
 		TIM6->EGR 		= 	1;
 		TIM6->CR1 		|= 	(1 << 0);
 		/* Timer 4 clock */
-		RCC->APB1ENR 	|= 	(1 << 2);
+		RCC->APB1ENR 		|= 	(1 << 2);
 		/* Timer 4 config */
 		TIM4->CR1 		|= 	(1 << 1);
 		TIM4->CR1 		&= 	~(1 << 1);
@@ -63,8 +63,8 @@ void Timer_Init(void)
 void PWM_Init(void) 
 {
 		/* PWM config */
-		TIM4->CCMR1 	&= 	~(7u << 4);
-		TIM4->CCMR1 	|= 	(6u << 4);
+		TIM4->CCMR1 		&= 	~(7u << 4);
+		TIM4->CCMR1 		|= 	(6u << 4);
 		TIM4->CCER 		&= 	~(1u << 1);
 		TIM4->CCER 		|= 	1u;
 		TIM4->CCR1 		= 	0u;
