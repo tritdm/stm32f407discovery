@@ -48,11 +48,11 @@ void _GPIO_Init(void)
 		/* GPIOA clock*/
 		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 		/* GPIOA config */
-		User_Button_Init.GPIO_Mode 	= GPIO_Mode_IN;
-		User_Button_Init.GPIO_OType = GPIO_OType_PP;
-		User_Button_Init.GPIO_Pin 	= User_Button_Pin;
-		User_Button_Init.GPIO_PuPd	= GPIO_PuPd_NOPULL;
-		User_Button_Init.GPIO_Speed = GPIO_High_Speed;
+		User_Button_Init.GPIO_Mode 		= GPIO_Mode_IN;
+		User_Button_Init.GPIO_OType 		= GPIO_OType_PP;
+		User_Button_Init.GPIO_Pin 		= User_Button_Pin;
+		User_Button_Init.GPIO_PuPd		= GPIO_PuPd_NOPULL;
+		User_Button_Init.GPIO_Speed 		= GPIO_High_Speed;
 	
 		GPIO_Init(User_Button_Port, &User_Button_Init);
 }
@@ -65,7 +65,7 @@ void Timer_Init(void)
 		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);	
 		/* Timer 6 config */
 		TIM6_Init.TIM_Prescaler 		= 84u - 1u;
-		TIM6_Init.TIM_Period 				= 0xffff;
+		TIM6_Init.TIM_Period 			= 0xffff;
 		TIM_TimeBaseInit(TIM6, &TIM6_Init);
 		TIM_Cmd(TIM6, ENABLE);
 }
