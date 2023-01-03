@@ -1,4 +1,4 @@
-#include "stm32f4xx.h"                  // Device header
+#include "stm32f4xx.h"                  /* Device header */
 
 #define sbi(reg, bit) (reg) |= (1 << (bit))
 #define cbi(reg, bit) (reg) &= ~(1 << (bit))
