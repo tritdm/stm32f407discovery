@@ -1,4 +1,4 @@
-#include "stm32f4xx.h"                  // Device header
+#include "stm32f4xx.h"                  /* Device header */
 
 const uint32_t LED_D12_Pin = GPIO_Pin_12;
 const uint32_t User_Button_Pin = GPIO_Pin_0;
@@ -35,7 +35,7 @@ void _GPIO_Init(void)
 {
 		/* GPIOD for built-in led and GPIOA for built-in user button */
 		GPIO_InitTypeDef LED_D12_Init, User_Button_Init;
-		/* GPIOD clock*/
+		/* GPIOD clock */
 		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 		/* GPIOD config */
 		LED_D12_Init.GPIO_Mode 			= GPIO_Mode_OUT;
