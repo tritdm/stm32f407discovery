@@ -38,7 +38,7 @@ void _GPIO_Init(void)
 		/* GPIOD config */
 		GPIOD->MODER 	&= 	~(3u << 24);
 		GPIOD->MODER 	|= 	(1u << 24);
-		GPIOD->OTYPER &= 	~(1u << 12);
+		GPIOD->OTYPER 	&= 	~(1u << 12);
 		/* GPIOA Clock */
 		RCC->AHB1ENR 	|= 	(1u << 0);
 		/* GPIOA config */
