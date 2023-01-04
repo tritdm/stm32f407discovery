@@ -1,4 +1,4 @@
-#include "stm32f4xx.h"                  // Device header
+#include "stm32f4xx.h"                  /* Device header */
 
 const uint32_t LED_D12_Pin = GPIO_Pin_12;
 const uint32_t User_Button_Pin = GPIO_Pin_0;
@@ -53,14 +53,14 @@ void Timer_Init(void)
 		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);	
 		/* Timer 6 config */
 		TIM6_Init.TIM_Prescaler 					= 84u - 1u;
-		TIM6_Init.TIM_Period 							= 0xffff;
+		TIM6_Init.TIM_Period 						= 0xffff;
 		TIM_TimeBaseInit(TIM6, &TIM6_Init);
 		TIM_Cmd(TIM6, ENABLE);
 		/* Timer 4 clock */
 		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 		/* Timer 4 config */
 		TIM4_Init.TIM_Prescaler	 					= 8400u - 1u;
-		TIM4_Init.TIM_Period 							= 10u;
+		TIM4_Init.TIM_Period 						= 10u;
 		TIM_TimeBaseInit(TIM4, &TIM4_Init);
 		TIM_Cmd(TIM4, ENABLE);
 }
@@ -69,10 +69,10 @@ void PWM_Init(void)
 {
 		TIM_OCInitTypeDef PWM_TIM4_C1_Init;
 		/* PWM config */
-		PWM_TIM4_C1_Init.TIM_OCMode 			= TIM_OCMode_PWM1;
-		PWM_TIM4_C1_Init.TIM_OCPolarity 	= TIM_OCPolarity_High;
-		PWM_TIM4_C1_Init.TIM_OutputState 	= TIM_OutputState_Enable;
-		PWM_TIM4_C1_Init.TIM_Pulse 				= 0u;
+		PWM_TIM4_C1_Init.TIM_OCMode 					= TIM_OCMode_PWM1;
+		PWM_TIM4_C1_Init.TIM_OCPolarity 				= TIM_OCPolarity_High;
+		PWM_TIM4_C1_Init.TIM_OutputState 				= TIM_OutputState_Enable;
+		PWM_TIM4_C1_Init.TIM_Pulse 					= 0u;
 		
 		TIM_OC1Init(TIM4, &PWM_TIM4_C1_Init);
 }
